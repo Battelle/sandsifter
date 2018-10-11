@@ -48,21 +48,21 @@ class TextBox:
         self.draw()
 
     def at_top(self):
-		return self.selected_index == 0
+        return self.selected_index == 0
 
     def at_bottom(self):
-		return self.selected_index == len(self.text) - 1
+        return self.selected_index == len(self.text) - 1
 
     def scroll_top(self):
-		self.selected_index = 0
-		self.scroll_index = 0
-		self.draw()
+        self.selected_index = 0
+        self.scroll_index = 0
+        self.draw()
 
     def scroll_bottom(self):
-		self.selected_index = len(self.text) - 1
-		self.scroll_index = len(self.text) - (self.h - 2)
-		self.scroll_index = self.scroll_index if self.scroll_index > 0 else 0
-		self.draw()
+        self.selected_index = len(self.text) - 1
+        self.scroll_index = len(self.text) - (self.h - 2)
+        self.scroll_index = self.scroll_index if self.scroll_index > 0 else 0
+        self.draw()
 
     def draw(self):
         self.gui.box(self.window, self.x, self.y, self.w, self.h, self.color)
@@ -201,4 +201,3 @@ class Gui:
         window.addstr(y, x, "}", color)
         window.addstr(y + height - 1, x, '}', color)
         window.addch(y, int(x + 1 + progress * (width - 2)), curses.ACS_BLOCK, color)
-

@@ -27,6 +27,11 @@ import code
 import copy
 from ctypes import *
 
+try:
+    long        # Python 2
+except NameError:
+    long = int  # Python 3
+
 INJECTOR = "./injector"
 arch = ""
 
@@ -193,7 +198,7 @@ def cstr2py(s):
 
 # targeting python 2.6 support
 def int_to_comma(x):
-    if type(x) not in [type(0), type(0L)]:
+    if not isinstance(x, (int, long)):
         raise TypeError("Parameter must be an integer.")
     if x < 0:
         return '-' + int_to_comma(-x)

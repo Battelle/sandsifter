@@ -1,3 +1,4 @@
+from __future__ import print_function
 from capstone import *
 import sys
 from binascii import hexlify, unhexlify
@@ -17,6 +18,6 @@ except StopIteration:
     op_str=""
     size = 0
 
-print "%s %s" % (mnemonic, op_str)
-print byte_string[:size*2]
-print "%d bytes" % size
+print("%s %s" % (mnemonic, op_str))
+print(byte_string[:size*2])
+print("%d bytes" % size)
