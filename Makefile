@@ -32,10 +32,10 @@
 all: injector
 
 injector: injector.o
-	$(CC) $(CFLAGS) $< -O3 -Wall -l:libcapstone.a -o $@ -pthread
+	$(CC) $(CFLAGS) -no-pie $< -O3 -Wall -l:libcapstone.a -o $@ -pthread
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -Wall
+	$(CC) $(CFLAGS) -no-pie -c $< -o $@ -Wall
 
 clean:
-	rm *.o injector
+	rm -f *.o injector
